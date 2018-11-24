@@ -1,4 +1,4 @@
-package com.thesoundbox;
+package com.blackbirds.studio.thesoundbox;
 
 import com.facebook.react.ReactActivity;
 
