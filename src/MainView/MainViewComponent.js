@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Platform, StyleSheet, Text, View, Button, TouchableOpacity, ScrollView } from 'react-native';
+import { Platform, StyleSheet, Text, View, Button, TouchableOpacity, ScrollView, Alert, TouchableHighlight } from 'react-native';
 import PropTypes from 'prop-types';
 import * as sounds from './sounds';
 import GridView from 'react-native-super-grid';
@@ -30,12 +30,21 @@ class MainViewComponent extends Component<Props> {
             return(
               <View>
                 {item.getCategory()[0] !== lastCategory1 && <Text style={{ marginTop: 10 }}>{item.getCategory()[0]}</Text>}
-                <TouchableOpacity style={{ marginTop: 5 }} onPress={() => handleClickButton(item.getId())}>
-                  <View style={[styles.itemContainer, { backgroundColor: item.getCategory()[1] }]}>
-                    <Text style={styles.itemName}>{item.getName()}</Text>
-                    <Text style={styles.itemCategory}>{item.getCategory()[0]}</Text>
-                  </View>
-                </TouchableOpacity>
+                {item.isPro() ?
+                  <TouchableHighlight underlayColor="#00000000" style={{ marginTop: 5 }} onPress={() => Alert.alert("Pro feature!", "This is a pro sound!")}>
+                    <View style={[styles.itemContainer, { backgroundColor: `${item.getCategory()[1]}77` }]}>
+                      <Text style={styles.itemName}>{item.getName()}</Text>
+                      <Text style={styles.itemCategory}>{item.getCategory()[0]}</Text>
+                      <Text style={styles.itemPro}>PRO</Text>
+                    </View>
+                  </TouchableHighlight> :
+                  <TouchableHighlight underlayColor="#00000000" style={{ marginTop: 5 }} onPress={() => handleClickButton(item.getId())}>
+                    <View style={[styles.itemContainer, { backgroundColor: item.getCategory()[1] }]}>
+                      <Text style={styles.itemName}>{item.getName()}</Text>
+                      <Text style={styles.itemCategory}>{item.getCategory()[0]}</Text>
+                    </View>
+                  </TouchableHighlight>
+                }
               </View>
             );
           })}
@@ -48,7 +57,8 @@ class MainViewComponent extends Component<Props> {
 const styles = StyleSheet.create({
   container: {
     marginRight: 5,
-    marginLeft: 5
+    marginLeft: 5,
+    marginBottom: 10
   },
   gridView: {
     paddingTop: 25
@@ -69,6 +79,10 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: '#fff',
   },
+  itemPro: {
+    textAlign: 'right',
+    color: 'white'
+  }
 });
 
 MainViewComponent.propTypes = {

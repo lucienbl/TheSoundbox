@@ -1,3 +1,4 @@
 export const MYSTERIOUS = ['MYSTERIOUS', '#2980b9'];
-export const HORROR = ['HORROR', '#c0392b'];
-export const ALARMS = ['ALARMS', '#e67e22'];
+export const HORROR = ['HORROR', '#930e0e'];
+export const ALARM = ['ALARM', '#e67e22'];
+export const WAR = ['WAR', '#345430'];

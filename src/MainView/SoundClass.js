@@ -2,11 +2,12 @@ import Sound from 'react-native-sound';
 
 export default class SoundClass {
 
-  constructor(id, name, category, sound) {
+  constructor(id, name, category, sound, model) {
     this.id = id;
     this.name = name;
     this.category = category;
     this.sound = sound;
+    this.model = model;
   }
 
   getId() {
@@ -19,6 +20,13 @@ export default class SoundClass {
 
   getCategory() {
     return this.category;
+  }
+
+  isPro() {
+    if (this.model === 'PRO') {
+      return true;
+    }
+    return false;
   }
 
   async playSound() {
