@@ -28,7 +28,7 @@ class MainViewComponent extends Component<Props> {
             let lastCategory1 = lastCategory;
             lastCategory = item.getCategory()[0];
             return(
-              <View>
+              <View key={item.getId()}>
                 {item.getCategory()[0] !== lastCategory1 && <Text style={{ marginTop: 10 }}>{item.getCategory()[0]}</Text>}
                 {item.isPro() ?
                   <TouchableHighlight underlayColor="#00000000" style={{ marginTop: 5 }} onPress={() => Alert.alert("Pro feature!", "This is a pro sound!")}>
