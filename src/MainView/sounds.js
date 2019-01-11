@@ -16,7 +16,7 @@ export const sounds = [
   new SoundClass('5', 'Male Zombie Roar', Category.HORROR, 'male_zombie_roar.mp3', FREE),
   new SoundClass('6', 'Laser Gun', Category.WAR, 'laser_gun.wav', FREE),
   new SoundClass('7', 'War Walkie-Talkie', Category.WAR, 'war_walkie_talkie.wav', FREE),
-  new SoundClass('8', 'Nuclear Alarm', Category.ALARM, 'nuclear_alarm.wav', FREE)
+  new SoundClass('8', 'Nuclear Alarm', Category.ALARM, 'nuclear_alarm.wav', PRO)
 ];
 
 export const sortedSound = sortByCategory();
